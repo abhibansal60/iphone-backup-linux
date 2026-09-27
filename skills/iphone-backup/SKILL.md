@@ -69,4 +69,4 @@ The backup's files are hashed and encrypted, so they can't be browsed. Decrypt t
 $VENV/bin/python <skill-dir>/extract-photos.py "$DEST/<UDID>" <output-dir>
 ```
 
-It takes the password from `BACKUP_PASSWORD`, or prompts for it; the user runs it in their own terminal. The same library, [`iphone_backup_decrypt`](https://github.com/jsharkey13/iphone_backup_decrypt), also extracts messages, WhatsApp, notes and contacts (`RelativePath.*`). To restore the whole backup to a new iPhone, use `pymobiledevice3 backup2 restore`, or copy the UDID folder into Finder's or iTunes' backup folder.
+It prompts for the password, so the user runs it in their own terminal. The same library, [`iphone_backup_decrypt`](https://github.com/jsharkey13/iphone_backup_decrypt), also extracts messages, WhatsApp, notes and contacts (`RelativePath.*`). To restore the whole backup to a new iPhone, use `pymobiledevice3 backup2 restore`, or copy the UDID folder into Finder's or iTunes' backup folder.
