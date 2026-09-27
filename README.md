@@ -46,6 +46,10 @@ $VENV/bin/python skills/iphone-backup/extract-photos.py /path/to/disk/iPhone-Bac
 - **The backup sits at 0%.** The phone is waiting for you to enter its passcode.
 - **Backups mirror the phone.** An incremental backup drops whatever you deleted from the phone since the last run. The photo archive exists for exactly this reason.
 
+## Data and privacy
+
+Everything stays on your computer. The plugin sends no data anywhere: backups and photos go straight from the iPhone over USB to the disk you choose. The only network access is the one-time `pip install` of `pymobiledevice3` and `iphone_backup_decrypt` from PyPI. Backup passwords are typed into your own terminal and are never stored or passed to Claude.
+
 ## Credits
 
 Built on [pymobiledevice3](https://github.com/doronz88/pymobiledevice3) and [iphone_backup_decrypt](https://github.com/jsharkey13/iphone_backup_decrypt). Licensed GPL-3.0-or-later, the same as pymobiledevice3.
