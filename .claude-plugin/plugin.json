@@ -1,7 +1,7 @@
 {
   "name": "iphone-backup-linux",
   "displayName": "iPhone Backup for Linux",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Back up an iPhone on Linux without sudo: full or incremental encrypted backups plus an add-only photo archive.",
   "author": {
     "name": "Abhinav Bansal",
