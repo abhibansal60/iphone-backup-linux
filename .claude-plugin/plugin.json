@@ -1,0 +1,9 @@
+{
+  "name": "iphone-backup-linux",
+  "version": "0.1.0",
+  "description": "Back up an iPhone on Linux without sudo: full or incremental encrypted backups plus an add-only photo archive.",
+  "author": { "name": "Abhinav Bansal", "url": "https://github.com/abhibansal60" },
+  "repository": "https://github.com/abhibansal60/iphone-backup-linux",
+  "license": "GPL-3.0-or-later",
+  "keywords": ["iphone", "backup", "linux", "photos"]
+}

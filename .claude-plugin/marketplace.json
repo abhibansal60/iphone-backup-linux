@@ -1,0 +1,14 @@
+{
+  "name": "iphone-backup-linux",
+  "owner": { "name": "Abhinav Bansal", "url": "https://github.com/abhibansal60" },
+  "description": "iPhone backup on Linux as a Claude Code skill.",
+  "plugins": [
+    {
+      "name": "iphone-backup-linux",
+      "source": "./",
+      "description": "Back up an iPhone on Linux without sudo: full or incremental encrypted backups plus an add-only photo archive.",
+      "category": "productivity",
+      "keywords": ["iphone", "backup", "linux", "photos"]
+    }
+  ]
+}
