@@ -10,20 +10,27 @@ It's a [Claude Code](https://claude.com/claude-code) plugin: install it, say "ba
 
 > **Status:** submitted to Claude's plugin directory and in review. Until it's listed there, install it straight from GitHub as shown below.
 
-## Quick start: paste this into Claude Code
+## Start here: paste this to your agent
 
-Plug in your iPhone and your external disk, open Claude Code on the Linux machine, and paste:
+Plug in your iPhone and your external disk, open Claude Code (or any coding agent) on the Linux machine, and paste:
 
+```text
+Back up my iPhone to my external disk with iphone-backup-linux
+(https://github.com/abhibansal60/iphone-backup-linux).
+1. Clone it to ~/code/iphone-backup-linux, or run `git pull` there if it already exists.
+2. Read ~/code/iphone-backup-linux/skills/iphone-backup/SKILL.md in full and follow it as the runbook.
+3. Check my setup with read-only commands first: `lsusb | grep -i apple`,
+   `lsblk -o NAME,SIZE,FSTYPE,LABEL,MOUNTPOINT`, `python3 --version` and
+   `ls ~/.local/share/iphone-backup/venv/bin/pymobiledevice3` (installed already?).
+   Tell me what you found and ask me which disk partition to use.
+4. Ask me before you mount a disk, install anything or turn on backup encryption. Never run sudo.
+   I type any backup password in my own terminal, never in this chat.
+5. Install the tools into the runbook's venv, make a full encrypted backup (incremental if one is
+   already on the disk), then run the photo archive. Tell me the backup size, how many photos
+   were archived and where they are.
 ```
-Back up my iPhone to my external disk using the iphone-backup-linux plugin.
-Install it first if it's missing:
-  claude plugin marketplace add abhibansal60/iphone-backup-linux
-  claude plugin install iphone-backup-linux@iphone-backup-linux
-Then follow the plugin's skills/iphone-backup/SKILL.md step by step:
-ask me which disk to use, make a full encrypted backup, then run the photo archive.
-```
 
-Or install it yourself inside Claude Code:
+Or install the plugin yourself inside Claude Code:
 
 ```
 /plugin marketplace add abhibansal60/iphone-backup-linux
