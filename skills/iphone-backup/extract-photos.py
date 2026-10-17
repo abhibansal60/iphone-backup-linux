@@ -12,7 +12,7 @@ import sys
 from pathlib import Path
 
 from iphone_backup_decrypt import DomainLike, EncryptedBackup
-from iphone_backup_decrypt.exceptions import IncorrectPassphraseError
+from iphone_backup_decrypt.exceptions import BackupNotEncryptedError, IncorrectPassphraseError
 
 if len(sys.argv) != 3:
     sys.exit(__doc__)
@@ -30,4 +30,7 @@ try:
     )
 except IncorrectPassphraseError:
     sys.exit("Wrong backup password.")
+except BackupNotEncryptedError:
+    sys.exit("This backup isn't encrypted, so this script can't read it. Copy photos straight off the "
+             "phone with photo-archive.py, or turn encryption on and back up again.")
 print(f"extracted {n} files to {out}")
