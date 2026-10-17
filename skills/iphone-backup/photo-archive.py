@@ -64,6 +64,8 @@ async def archive(afc, dest: Path, log=print) -> tuple[int, int]:
                 # pull to .part, then rename: an interrupted run never leaves a half file marked done
                 await afc.pull(src, str(part), progress_bar=False)
                 os.replace(part, target)
+                # pull stamps the device's st_mtime; use creation time so mtime matches the folder
+                os.utime(target, (taken.timestamp(), taken.timestamp()))
             index.write(key + "\n")
             index.flush()
             copied += 1

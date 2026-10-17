@@ -3,6 +3,7 @@
 import asyncio
 import datetime as dt
 import importlib.util
+import os
 import shutil
 import tempfile
 from pathlib import Path
@@ -41,7 +42,8 @@ class FakeAfc:
         return {"st_size": len(data), "st_birthtime": born}
 
     async def pull(self, src, dst, progress_bar=True):
-        Path(dst).write_bytes(self.files[src][0])
+        Path(dst).write_bytes(self.files[src][0])  # like the real pull, mtime becomes the device's
+        os.utime(dst, (0, 0))                      # st_mtime, which differs from st_birthtime
 
 
 def run(afc, dest):
@@ -62,6 +64,7 @@ try:
     assert (dest / "2024/01/IMG_0001.HEIC").read_bytes() == b"a" * 10
     assert (dest / "2024/01/IMG_0001-1.HEIC").read_bytes() == b"b" * 20
     assert (dest / "2024/02/CLOUD.MOV").exists()
+    assert (dest / "2024/01/IMG_0001.HEIC").stat().st_mtime == jan.timestamp()  # mtime = creation time
     assert not list(dest.rglob("*.AAE")) and not list(dest.rglob("*.part"))
 
     # rerun copies nothing
